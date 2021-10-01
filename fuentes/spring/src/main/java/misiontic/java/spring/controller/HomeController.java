@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
 
     @GetMapping("/")
-    public String homePage() {
-        return "Hola Mundo: Equipo ADAMANTIUM";
+    public String homePage(String name) {
+        return String.format("Hello, %s. Welcome to Adamantium's home page.", name);
     }
 }
