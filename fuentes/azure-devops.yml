@@ -9,9 +9,9 @@ steps:
   - task: Gradle@2
     displayName: 'gradlew clean build compileJava'
     inputs:
-      gradleWrapperFile: '$(Parameters.wrapperScript)'
+      gradleWrapperFile: 'fuentes/spring/gradlew'
       workingDirectory: fuentes/spring
-      tasks: '$(Parameters.tasks)'
+      tasks: 'clean build compileJava'
 
   - task: CopyFiles@2
     displayName: 'Copy Files to: $(build.artifactstagingdirectory)/artefactory'
