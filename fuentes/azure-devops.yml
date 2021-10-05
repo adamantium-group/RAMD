@@ -1,0 +1,30 @@
+pool:
+  name: Azure Pipelines
+  demands: java
+
+#Your build pipeline references an undefined variable named ‘Parameters.wrapperScript’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references an undefined variable named ‘Parameters.tasks’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+
+steps:
+  - task: Gradle@2
+    displayName: 'gradlew clean build compileJava'
+    inputs:
+      gradleWrapperFile: '$(Parameters.wrapperScript)'
+      workingDirectory: fuentes/spring
+      tasks: '$(Parameters.tasks)'
+
+  - task: CopyFiles@2
+    displayName: 'Copy Files to: $(build.artifactstagingdirectory)/artefactory'
+    inputs:
+      SourceFolder: fuentes/spring
+      Contents: |
+        **/*
+        !build\**
+      TargetFolder: '$(build.artifactstagingdirectory)/artefactory'
+    condition: succeededOrFailed()
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    inputs:
+      PathtoPublish: fuentes/spring
+    condition: succeededOrFailed()
