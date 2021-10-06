@@ -8,6 +8,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String homePage() {
-        return "Hola Mundo: Equipo ADAMANTIUM";
+        return "Hola Mundo: Equipo ADAMANTIUM con CI/DC";
     }
 }
