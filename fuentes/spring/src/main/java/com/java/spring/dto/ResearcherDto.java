@@ -1,4 +1,4 @@
-package misiontic.java.spring.dto;
+package com.java.spring.dto;
 
 import java.time.LocalDateTime;
 

@@ -1,6 +1,6 @@
-package misiontic.java.spring.controller;
+package com.java.spring.controller;
 
-import misiontic.java.spring.dto.ResearcherDto;
+import com.java.spring.dto.ResearcherDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

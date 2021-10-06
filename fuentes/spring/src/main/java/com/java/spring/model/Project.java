@@ -1,4 +1,4 @@
-package misiontic.java.spring.model;
+package com.java.spring.model;
 
 import org.springframework.data.annotation.Id;
 

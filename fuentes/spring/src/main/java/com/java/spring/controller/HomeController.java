@@ -1,4 +1,4 @@
-package misiontic.java.spring.controller;
+package com.java.spring.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
