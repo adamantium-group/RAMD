@@ -5,6 +5,7 @@ import com.misiontic.microservicios.models.Researcher;
 import com.misiontic.microservicios.repositories.ProjectRepository;
 import com.misiontic.microservicios.repositories.ResearcherRepository;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
@@ -60,5 +61,10 @@ public class ResearcherController {
     @GetMapping("/participantes")
     public List<Researcher> getAllResearcher() {
         return researcherRepository.findAll();
+    }
+
+    @GetMapping("/participantes/{researcherId}")
+    public Researcher getOneResearcher(@PathVariable String researcherId) {
+        return researcherRepository.findById(researcherId).orElse(null);
     }
 }

@@ -4,6 +4,7 @@ import com.misiontic.microservicios.models.Project;
 import com.misiontic.microservicios.repositories.ProjectRepository;
 import com.misiontic.microservicios.repositories.ResearcherRepository;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
@@ -48,5 +49,10 @@ public class ProjectController {
     @GetMapping("/proyectos")
     public List<Project> getAllProjects() {
         return projectRepository.findAll();
+    }
+
+    @GetMapping("/proyectos/{projectId}")
+    public Project getOneProject(@PathVariable String projectId){
+        return projectRepository.findById(projectId).orElse(null);
     }
 }

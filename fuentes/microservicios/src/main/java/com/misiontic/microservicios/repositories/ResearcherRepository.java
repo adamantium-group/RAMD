@@ -2,9 +2,11 @@ package com.misiontic.microservicios.repositories;
 
 import com.misiontic.microservicios.models.Researcher;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 public interface ResearcherRepository extends MongoRepository<Researcher, String> {
 
-    //public Researcher findByResearcherId()
+    Optional<Researcher> findById(String researchId);
+
 }
