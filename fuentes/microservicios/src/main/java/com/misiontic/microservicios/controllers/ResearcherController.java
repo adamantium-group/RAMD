@@ -4,14 +4,13 @@ import com.misiontic.microservicios.dtos.ResearcherDto;
 import com.misiontic.microservicios.models.Researcher;
 import com.misiontic.microservicios.repositories.ProjectRepository;
 import com.misiontic.microservicios.repositories.ResearcherRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
+@RequestMapping("/participantes")
 public class ResearcherController {
 
     private final ResearcherRepository researcherRepository;
@@ -58,13 +57,33 @@ public class ResearcherController {
                 "614611590f9b95fb06d365a4");
     }
 
-    @GetMapping("/participantes")
-    public List<Researcher> getAllResearcher() {
-        return researcherRepository.findAll();
+    // Mostrar todos los participantes
+    @GetMapping
+    public List<Researcher> getAllResearcher(@RequestParam(defaultValue = "all", required = false) String role) {
+        if (role == "all") {
+            return researcherRepository.findAll();
+        }
+        else {
+            return researcherRepository.findByRole(role);
+        }
     }
 
-    @GetMapping("/participantes/{researcherId}")
+    // Mostrar un participante en especifico
+    @GetMapping("/{researcherId}")
     public Researcher getOneResearcher(@PathVariable String researcherId) {
         return researcherRepository.findById(researcherId).orElse(null);
+    }
+
+    // Actualizar los datos de un participante en especifico
+    @PutMapping("/{researcherId}/update")
+    public void updateResearcher(@PathVariable String researcherId,
+                                 @RequestBody Researcher actualResearcher) {
+        researcherRepository.save(actualResearcher);
+    }
+
+    // Nuevo ingreso de un participante
+    @PostMapping("/new")
+    public void updateResearcher(@RequestBody Researcher newResearcher) {
+        researcherRepository.save(newResearcher);
     }
 }

@@ -2,9 +2,10 @@ package com.misiontic.microservicios.models;
 
 import org.springframework.data.annotation.Id;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Researcher {
+public class Researcher implements Serializable {
 
     // Parametros
     @Id
