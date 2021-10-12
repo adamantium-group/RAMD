@@ -3,14 +3,13 @@ package com.misiontic.microservicios.controllers;
 import com.misiontic.microservicios.models.Project;
 import com.misiontic.microservicios.repositories.ProjectRepository;
 import com.misiontic.microservicios.repositories.ResearcherRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
+@RequestMapping("/proyectos")
 public class ProjectController {
 
     private final ProjectRepository projectRepository;
@@ -46,13 +45,22 @@ public class ProjectController {
         this.projectRepository.save(p2);
     }
 
-    @GetMapping("/proyectos")
+    //Mostrar todos los proyectos
+    @GetMapping
     public List<Project> getAllProjects() {
         return projectRepository.findAll();
     }
 
-    @GetMapping("/proyectos/{projectId}")
+    // Mostrar un proyecto en especifico
+    @GetMapping("/{projectId}")
     public Project getOneProject(@PathVariable String projectId){
         return projectRepository.findById(projectId).orElse(null);
+    }
+
+    // Actualizar los datos de un proyecto en especifico
+    @PutMapping("/{projectId}/actualizar")
+    public void updateProject(@PathVariable String projectId,
+                              @RequestBody Project actualProject) {
+        projectRepository.save(actualProject);
     }
 }

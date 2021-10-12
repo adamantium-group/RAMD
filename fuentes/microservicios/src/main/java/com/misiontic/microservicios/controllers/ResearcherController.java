@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/participantes")
@@ -43,28 +44,17 @@ public class ResearcherController {
         this.researcherRepository.save(r2);
     }
 
-    @GetMapping("/dummy")
-    public ResearcherDto getResearcher() {
-        LocalDateTime entryDate = LocalDateTime.of(2021, 11, 25, 0, 0, 0, 0);
-        return new ResearcherDto("61461ba90f9b95fb06d365b0",
-                101,
-                "Estudiante",
-                "Hector",
-                "Osorio",
-                3106008455L,
-                entryDate,
-                "Mercadeo",
-                "614611590f9b95fb06d365a4");
-    }
-
-    // Mostrar todos los participantes
+    // Mostrar todos los participantes y filtrar por ProjectId
     @GetMapping
-    public List<Researcher> getAllResearcher(@RequestParam(defaultValue = "all", required = false) String role) {
-        if (role == "all") {
-            return researcherRepository.findAll();
+    public List<Researcher> getAllResearcher(@RequestParam(required = false) String projectId) {
+        List<Researcher> result = researcherRepository.findAll();
+        if (projectId == null) {
+            return result;
         }
         else {
-            return researcherRepository.findByRole(role);
+            return result.stream()
+                    .filter(r -> r.getProjectId().equals(projectId))
+                    .collect(Collectors.toList());
         }
     }
 
@@ -75,14 +65,14 @@ public class ResearcherController {
     }
 
     // Actualizar los datos de un participante en especifico
-    @PutMapping("/{researcherId}/update")
+    @PutMapping("/{researcherId}/actualizar")
     public void updateResearcher(@PathVariable String researcherId,
                                  @RequestBody Researcher actualResearcher) {
         researcherRepository.save(actualResearcher);
     }
 
     // Nuevo ingreso de un participante
-    @PostMapping("/new")
+    @PostMapping("/ingresar")
     public void updateResearcher(@RequestBody Researcher newResearcher) {
         researcherRepository.save(newResearcher);
     }
