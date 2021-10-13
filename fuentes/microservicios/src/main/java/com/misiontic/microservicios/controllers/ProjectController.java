@@ -4,11 +4,13 @@ import com.misiontic.microservicios.models.Project;
 import com.misiontic.microservicios.repositories.ProjectRepository;
 import com.misiontic.microservicios.repositories.ResearcherRepository;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RequestMapping("/proyectos")
 public class ProjectController {
 
