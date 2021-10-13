@@ -30,3 +30,13 @@
   color: white;
 }
 
+.TituloTablas{
+  width:80% ;
+  display: flex;
+  justify-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: lightgray;
+  border: 2px solid;
+  color: #282c34;
+}
