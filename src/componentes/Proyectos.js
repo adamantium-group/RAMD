@@ -18,9 +18,8 @@ export default class Proyectos extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <>
         <h3>Lista de Proyectos</h3>
-        <hr />
         <Table>
           <Thead>
             <Tr>
@@ -36,32 +35,26 @@ export default class Proyectos extends React.Component {
             </Tr>
           </Thead>
           <Tbody>
-            <Tr>
-              <Td>P001</Td>
-              <Td>Reptiles del Amazonas</Td>
-              <Td>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                ut lectus sed massa congue tincidunt. Etiam sagittis lectus nec
-                interdum luctus. Orci varius natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus. Nam id erat enim. Sed
-                at massa.
-              </Td>
-              <Td>Inicio</Td>
-              <Td>Documentación</Td>
-              <Td>15000000</Td>
-              <Td>2021-09-18</Td>
-              <Td>2021-12-10</Td>
-              <Td>IN001</Td>
-            </Tr>
+            {this.state.proyectos.map((proyecto) => {
+              return (
+                <>
+                  <Tr>
+                    <Td>{proyecto.projectId}</Td>
+                    <Td>{proyecto.title}</Td>
+                    <Td>{proyecto.description}</Td>
+                    <Td>{proyecto.status}</Td>
+                    <Td>{proyecto.phase}</Td>
+                    <Td>{proyecto.budget}</Td>
+                    <Td>{proyecto.startDate}</Td>
+                    <Td>{proyecto.finishDate}</Td>
+                    <Td>{proyecto.researcherId}</Td>
+                  </Tr>
+                </>
+              );
+            })}
           </Tbody>
         </Table>
-        <br />
-        <ul>
-          {this.state.proyectos.map((proyecto) => (
-            <li>{proyecto.title}</li>
-          ))}
-        </ul>
-      </Fragment>
+      </>
     );
   }
 }

@@ -6,22 +6,6 @@ import axios from 'axios';
 import Button from '@material-ui/core/Button';
 
 function App() {
-  // const projecto = {
-  //   _id: 'p01',
-  //   title: 'nombre del proyecto p01',
-  //   description: 'desc proj p01',
-  //   status: 'iniciado',
-  // };
-
-  // const listaProyectos = ['Proyecto1', 'prpyecto2'];
-
-  // const persona = {
-  //   _id: 'r01',
-  //   role: 'estudian',
-  //   cell: '3256987410',
-  //   carrer: 'biomedico',
-  // };
-
   return (
     <div className="App">
       <header className="App-header">
