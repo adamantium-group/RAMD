@@ -1,5 +1,4 @@
 import React from 'react';
-import { Fragment } from 'react/cjs/react.production.min';
 import axios from 'axios';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
