@@ -20,7 +20,6 @@ public class Project {
     private LocalDateTime startDate;
     private LocalDateTime finishDate;
     private String researcherId;
-    //private List<Researcher> listResearcher;
 
 
     // Contructor

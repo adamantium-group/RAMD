@@ -1,13 +1,14 @@
 package com.misiontic.microservicios.models;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Researcher implements Serializable {
+@Document
+public class Researcher {
 
-    // Parametros
     @Id
     private String researcherId;
 

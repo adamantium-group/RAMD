@@ -1,6 +1,5 @@
 package com.misiontic.microservicios.controllers;
 
-import com.misiontic.microservicios.dtos.ResearcherDto;
 import com.misiontic.microservicios.models.Researcher;
 import com.misiontic.microservicios.repositories.ProjectRepository;
 import com.misiontic.microservicios.repositories.ResearcherRepository;
@@ -73,7 +72,14 @@ public class ResearcherController {
 
     // Nuevo ingreso de un participante
     @PostMapping("/ingresar")
-    public void updateResearcher(@RequestBody Researcher newResearcher) {
+    public void newResearcher(@RequestBody Researcher newResearcher) {
         researcherRepository.save(newResearcher);
     }
+
+    // Borrar un participante
+    @DeleteMapping("/borrar")
+    public void deleteResearcher(@PathVariable String researcherId) {
+        researcherRepository.deleteById(researcherId);
+    }
+
 }

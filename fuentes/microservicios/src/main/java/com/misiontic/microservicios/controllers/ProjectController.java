@@ -1,6 +1,7 @@
 package com.misiontic.microservicios.controllers;
 
 import com.misiontic.microservicios.models.Project;
+import com.misiontic.microservicios.models.Researcher;
 import com.misiontic.microservicios.repositories.ProjectRepository;
 import com.misiontic.microservicios.repositories.ResearcherRepository;
 import org.springframework.web.bind.annotation.*;
@@ -62,5 +63,17 @@ public class ProjectController {
     public void updateProject(@PathVariable String projectId,
                               @RequestBody Project actualProject) {
         projectRepository.save(actualProject);
+    }
+
+    // Nuevo ingreso de un proyecto
+    @PostMapping("/ingresar")
+    public void newProject(@RequestBody Project newProject) {
+        projectRepository.save(newProject);
+    }
+
+    // Borrar un proyecto
+    @DeleteMapping("/borrar")
+    public void deleteProject(@PathVariable String projectId) {
+        projectRepository.deleteById(projectId);
     }
 }
