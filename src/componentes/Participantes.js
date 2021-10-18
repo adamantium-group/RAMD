@@ -19,7 +19,6 @@ export default class Participantes extends React.Component {
   render() {
     return (
       <>
-        <h3>Lista de participantes</h3>
         <Table>
           <Thead>
             <Tr>

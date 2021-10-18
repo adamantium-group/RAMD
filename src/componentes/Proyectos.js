@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+// import styled from 'styled-components';
 
 export default class Proyectos extends React.Component {
   state = {
@@ -18,7 +19,6 @@ export default class Proyectos extends React.Component {
   render() {
     return (
       <>
-        <h3>Lista de Proyectos</h3>
         <Table>
           <Thead>
             <Tr>

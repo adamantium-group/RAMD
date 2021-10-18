@@ -51,3 +51,10 @@ textarea {
 a {
   text-decoration: none;
 }
+
+table,
+thead,
+tr,
+th {
+  color: #ffffff;
+}

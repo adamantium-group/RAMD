@@ -14,12 +14,17 @@ export default function Navbar(props) {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar sx={{ px: 13, bgcolor: '#FFFFFF' }} position="static">
+      <AppBar
+        disableGutters
+        sx={{ px: 13, bgcolor: '#FFFFFF', mx: 'auto' }}
+        position="static"
+      >
         <Toolbar
           sx={{
             display: 'flex',
             flexDirection: 'rows',
             justifyContent: 'space-between',
+            maxWidth: 'lg',
           }}
         >
           <Link
