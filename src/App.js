@@ -7,6 +7,7 @@ import Consultar from './componentes/Consultar.js';
 import Gestionar from './componentes/Gestionar.js';
 
 function App() {
+  // const active = true;
   return (
     <div className="App">
       <Router>
