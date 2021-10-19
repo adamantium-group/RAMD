@@ -1,8 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import Proyectos from './Proyectos.js';
-import Participantes from './Participantes.js';
+// import Participantes from './Participantes.js';
 import styled from 'styled-components';
+import GetParticipants from './GetParticipants.js';
+import GetProjects from './GetProjects.js';
 
 const TabInfo = (props) => {
   const home = props.home;
@@ -63,11 +65,11 @@ const TabInfo = (props) => {
           </WrapperRadio>
           {answer ? (
             <>
-              <Proyectos />
+              <GetProjects />
             </>
           ) : (
             <>
-              <Participantes />
+              <GetParticipants />;
             </>
           )}
         </>
@@ -95,6 +97,7 @@ const Styledp = styled.p`
 const WrapperRadio = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 40px;
 `;
 
 const LabelRadio = styled.label`

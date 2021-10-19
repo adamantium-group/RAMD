@@ -1,6 +1,4 @@
 import React from 'react';
-import axios from 'axios';
-
 import Navbar from './Navbar.js';
 import styled from 'styled-components';
 import TabInfo from './TabInfo.js';
