@@ -5,6 +5,10 @@ import Proyectos from './Proyectos.js';
 import styled from 'styled-components';
 import GetParticipants from './GetParticipants.js';
 import GetProjects from './GetProjects.js';
+import FindProyect from './FindProyect.js';
+import Participantes from './Participantes.js';
+import FindParticipante from './FindParticipante.js';
+import Gestionar from './Gestionar.js';
 
 const TabInfo = (props) => {
   const home = props.home;
@@ -30,6 +34,38 @@ const TabInfo = (props) => {
         <>
           <Styledh1>{gestionar.title}</Styledh1>
           <Styledp>{gestionar.text}</Styledp>
+          <WrapperRadio>
+            <LabelRadio>
+              <input
+                type="radio"
+                value={true}
+                name="opciones"
+                onClick={toggleAnswer}
+                checked={answer}
+                style={InputStyle}
+              />
+              Proyectos
+            </LabelRadio>
+            <LabelRadio>
+              <input
+                type="radio"
+                value={false}
+                name="opciones"
+                onClick={toggleAnswer}
+                style={InputStyle}
+              />
+              Participantes
+            </LabelRadio>
+          </WrapperRadio>
+          {answer ? (
+            <>
+              <FindProyect ID={gestionar.Id} />
+            </>
+          ) : (
+            <>
+              <FindParticipante />
+            </>
+          )}
         </>
       ) : agregar ? (
         <>
