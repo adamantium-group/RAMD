@@ -11,6 +11,7 @@ const Gestionar = (props) => {
   const gestionar = {
     title: '¿Qué deseas gestionar?',
     text: 'Haz clic sobre el ID del proyecto/participante para modificar los campos de tu interés.',
+    Id: '------------------'
   };
   return (
     <>
