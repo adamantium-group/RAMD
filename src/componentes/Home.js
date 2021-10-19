@@ -1,8 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar.js';
-// import ContainerMain from './ContainerMain.js';
 import styled from 'styled-components';
-// import Container from './Container.js';
 import TabInfo from './TabInfo.js';
 
 const Home = () => {
@@ -21,7 +19,8 @@ const Home = () => {
 };
 
 const StyledContainer = styled.div`
-  padding-top: 80px;
+  padding-block: 80px;
+  min-height: 85vh;
   max-width: 1600px;
   padding-inline: 130px;
   margin: 0 auto;

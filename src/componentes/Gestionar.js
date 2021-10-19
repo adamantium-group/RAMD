@@ -11,7 +11,7 @@ const Gestionar = (props) => {
   const gestionar = {
     title: '¿Qué deseas gestionar?',
     text: 'Haz clic sobre el ID del proyecto/participante para modificar los campos de tu interés.',
-    Id: '------------------'
+    Id: '------------------',
   };
   return (
     <>
@@ -23,7 +23,8 @@ const Gestionar = (props) => {
   );
 };
 const StyledContainer = styled.div`
-  padding-top: 80px;
+  padding-block: 80px;
+  min-height: 85vh;
   max-width: 1600px;
   padding-inline: 130px;
   margin: 0 auto;

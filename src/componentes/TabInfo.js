@@ -9,6 +9,7 @@ import FindProyect from './FindProyect.js';
 import Participantes from './Participantes.js';
 import FindParticipante from './FindParticipante.js';
 import Gestionar from './Gestionar.js';
+import FormAgregarProyecto from './FormAgregarProyecto.js';
 
 const TabInfo = (props) => {
   const home = props.home;
@@ -71,6 +72,38 @@ const TabInfo = (props) => {
         <>
           <Styledh1>{agregar.title}</Styledh1>
           <Styledp>{agregar.text}</Styledp>
+          <WrapperRadio>
+            <LabelRadio>
+              <input
+                type="radio"
+                value={true}
+                name="opciones"
+                onClick={toggleAnswer}
+                checked={answer}
+                style={InputStyle}
+              />
+              Proyectos
+            </LabelRadio>
+            <LabelRadio>
+              <input
+                type="radio"
+                value={false}
+                name="opciones"
+                onClick={toggleAnswer}
+                style={InputStyle}
+              />
+              Participantes
+            </LabelRadio>
+          </WrapperRadio>
+          {answer ? (
+            <>
+              <FormAgregarProyecto />
+            </>
+          ) : (
+            <>
+              <h3>Aqui va el form de Participantes</h3>
+            </>
+          )}
         </>
       ) : (
         <>

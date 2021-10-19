@@ -57,4 +57,10 @@ thead,
 tr,
 th {
   color: #ffffff;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+td::first-letter {
+  text-transform: uppercase;
 }

@@ -45,8 +45,16 @@ function GetProjects() {
                   <Td>{project.description}</Td>
                   <Td>{project.status}</Td>
                   <Td>{project.phase}</Td>
-                  <Td>{roundMillion(project.budget)}</Td>
-                  <Td>{project.date.substring(0, 10)}</Td>
+                  <Td>
+                    {project.budget
+                      ? roundMillion(project.budget)
+                      : roundMillion(1000000)}
+                  </Td>
+                  <Td>
+                    {project.date
+                      ? project.date.substring(0, 10)
+                      : `Por definir`}
+                  </Td>
                   {/* <Td>{project.finishDate}</Td>
                   <Td>{project.researcherId}</Td> */}
                 </Tr>

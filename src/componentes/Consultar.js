@@ -21,7 +21,8 @@ const Consultar = (props) => {
 };
 
 const StyledContainer = styled.div`
-  padding-top: 80px;
+  padding-block: 80px;
+  min-height: 85vh;
   max-width: 1600px;
   padding-inline: 130px;
   margin: 0 auto;

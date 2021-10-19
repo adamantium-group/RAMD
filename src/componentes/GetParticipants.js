@@ -40,7 +40,11 @@ function GetParticipants() {
                   <Td>{participant.firstName}</Td>
                   <Td>{participant.lastName}</Td>
                   <Td>{participant.cell}</Td>
-                  <Td>{participant.entry_date}</Td>
+                  <Td>
+                    {participant.entry_date
+                      ? participant.entry_date.substring(0, 10)
+                      : `Por definir`}
+                  </Td>
                   <Td>{participant.career}</Td>
                   {/* <Td>{participant.projectId}</Td> */}
                 </Tr>
