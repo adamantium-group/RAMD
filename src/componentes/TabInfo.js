@@ -10,6 +10,7 @@ import Participantes from './Participantes.js';
 import FindParticipante from './FindParticipante.js';
 import Gestionar from './Gestionar.js';
 import FormAgregarProyecto from './FormAgregarProyecto.js';
+import FormAgregarParticipante from './FormAgregarParticipante.js';
 
 const TabInfo = (props) => {
   const home = props.home;
@@ -101,7 +102,7 @@ const TabInfo = (props) => {
             </>
           ) : (
             <>
-              <h3>Aqui va el form de Participantes</h3>
+              <FormAgregarParticipante />
             </>
           )}
         </>

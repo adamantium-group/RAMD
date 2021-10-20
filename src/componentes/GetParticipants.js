@@ -8,6 +8,10 @@ function GetParticipants() {
   const { error, loading, data } = useQuery(LOAD_PARTICIPANTS);
   const [participants, setParticipants] = useState([]);
 
+  function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
   useEffect(() => {
     if (data) {
       setParticipants(data.getResearchers);
@@ -38,12 +42,22 @@ function GetParticipants() {
                   <Td>{participant.id.substring(0, 7)}</Td>
                   <Td>{participant.role}</Td>
                   <Td>{participant.firstName}</Td>
-                  <Td>{participant.lastName}</Td>
-                  <Td>{participant.cell}</Td>
+                  <Td>
+                    {participant.lastName
+                      ? participant.lastName
+                      : `Sin definir`}
+                    {participant.lastName}
+                  </Td>
+                  <Td>
+                    {participant.cell
+                      ? participant.cell
+                      : getRndInteger(3000000000, 3999999999)}
+                  </Td>
                   <Td>
                     {participant.entry_date
                       ? participant.entry_date.substring(0, 10)
                       : `Por definir`}
+                    {participant.entry_date}
                   </Td>
                   <Td>{participant.career}</Td>
                   {/* <Td>{participant.projectId}</Td> */}
