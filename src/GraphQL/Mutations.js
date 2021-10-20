@@ -61,3 +61,15 @@ export const ADD_PARTICIPANT_MUTATION = gql`
     }
   }
 `;
+
+export const UPDATE_PROJECT_MUTATION = gql`
+  mutation {
+    updateProject(
+      id: $id 
+      status: $status
+      ) {
+      id
+      status
+    }
+  }
+`;

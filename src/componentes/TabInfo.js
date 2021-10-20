@@ -11,6 +11,7 @@ import FindParticipante from './FindParticipante.js';
 import Gestionar from './Gestionar.js';
 import FormAgregarProyecto from './FormAgregarProyecto.js';
 import FormAgregarParticipante from './FormAgregarParticipante.js';
+import FormGestionarProyecto from './FormGestionarProyecto.js';
 
 const TabInfo = (props) => {
   const home = props.home;
@@ -61,7 +62,7 @@ const TabInfo = (props) => {
           </WrapperRadio>
           {answer ? (
             <>
-              <FindProyect ID={gestionar.Id} />
+              <FormGestionarProyecto />
             </>
           ) : (
             <>
